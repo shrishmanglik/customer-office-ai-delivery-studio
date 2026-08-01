@@ -68,13 +68,15 @@ Review boundary: author session stops at `READY_FOR_DISTINCT_REVIEW`
 
 | Claim | State | Evidence |
 |---|---|---|
-| Task commit | GAP | Filled after explicit-path commit |
-| Remote task branch | GAP | Filled after push |
-| Pull request | GAP | Filled after PR creation |
+| Implementation commit | VERIFIED | `ce96d5a7fabfa13a72e02aae65ce2b06a3ace36e` |
+| Evidence-packet commit | VERIFIED | `6b6636dd961c07a86e500ddf66351d22e1a414de` |
+| Remote task branch | VERIFIED | `origin/dev/customer-office-ai-delivery-studio-initial-build` pushed successfully |
+| Pull request | VERIFIED | `https://github.com/shrishmanglik/customer-office-ai-delivery-studio/pull/1`, open and unmerged |
 | Independent review | BLOCKED | Requires a distinct `REVIEWER` session; this author session cannot record a verdict |
 | Merge | GAP | Not authorized |
 | Deployment | NOT APPLICABLE | Explicitly out of scope; no production deployment authorized |
-| Hosted CI | GAP | One PR validation is permitted; provider execution is not assumed until GitHub shows real steps |
+| Hosted CI | VERIFIED | Run `30700926355` on `6b6636dd...` completed checkout, `npm ci`, synthetic boundary, 30 tests, mutation control, typecheck, lint, and build with `success`; job `91371689044` contained real steps |
+| Manifest-finalization validation | VERIFIED BY DELTA | This closeout edit changes only `docs/EVIDENCE-MANIFEST.md`; commit message carries `[skip ci]` to avoid spending a second full PR validation |
 | Provider configuration, auth, schema, customer, demand, revenue, performance | GAP | No provider/customer authority was used; local source and tests cannot prove these classes of truth |
 
 ## Rollback
